@@ -1,5 +1,6 @@
 import collections
 import csv
+import matplotlib.pyplot as plt
 
 with open('OD_2017.csv') as csvfile:
     locais = collections.defaultdict(
@@ -37,6 +38,18 @@ with open('OD_2017.csv') as csvfile:
 
             locais[x][y].add(id)
 
+    data = []
+
     for i in sorted(locais):
         for j in sorted(locais[i]):
-            print(str(i) + ', ' + str(j) + ': ' + str(len(locais[i][j])))
+            data.append(len(locais[i][j]))
+    
+    data.sort(reverse=True)
+    # for i in data:
+    #     print(i)
+
+    plt.hist(data, data[0]) # plotting a histogram
+    plt.title('Histograma do Número de Pessoas - Locais')
+    plt.xlabel('Nº de pessoas que frequentam (frequentadores)')
+    plt.ylabel('Quantidade de lugares')
+    plt.show()
