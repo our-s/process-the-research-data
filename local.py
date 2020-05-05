@@ -1,8 +1,11 @@
 import collections
 import csv
 import matplotlib.pyplot as plt
+import time
+
 
 with open('OD_2017.csv') as csvfile:
+    inicio = time.time()
     locais = collections.defaultdict(
         lambda: collections.defaultdict(set))
 
@@ -38,6 +41,7 @@ with open('OD_2017.csv') as csvfile:
 
             locais[x][y].add(id)
 
+
     data = []
 
     for i in sorted(locais):
@@ -53,3 +57,5 @@ with open('OD_2017.csv') as csvfile:
     plt.xlabel('Nº de pessoas que frequentam (frequentadores)')
     plt.ylabel('Quantidade de lugares')
     plt.show()
+    fim = time.time()
+    print("Tempo de execução: %f" % (fim-inicio))
