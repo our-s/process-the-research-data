@@ -41,7 +41,6 @@ with open('OD_2017.csv') as csvfile:
 
             locais[x][y].add(id)
 
-
     data = []
 
     for i in sorted(locais):
@@ -56,6 +55,8 @@ with open('OD_2017.csv') as csvfile:
     plt.title('Histograma do Número de Pessoas - Locais')
     plt.xlabel('Nº de pessoas que frequentam (frequentadores)')
     plt.ylabel('Quantidade de lugares')
-    plt.show()
+    
     fim = time.time()
     print("Tempo de execução: %f" % (fim-inicio))
+
+    plt.show()
