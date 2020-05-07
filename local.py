@@ -51,7 +51,8 @@ with open('OD_2017.csv') as csvfile:
     # for i in data:
     #     print(i)
 
-    plt.hist(data, data[0]) # plotting a histogram
+    plt.hist(data, data[0], width = 0.85)  # plotting a histogram
+    plt.grid(axis = 'y', alpha = 0.5)
     plt.title('Histograma do Número de Pessoas - Locais')
     plt.xlabel('Nº de pessoas que frequentam (frequentadores)')
     plt.ylabel('Quantidade de lugares')
